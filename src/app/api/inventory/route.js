@@ -12,7 +12,7 @@ export async function GET() {
       ssl: { rejectUnauthorized: true },
     });
 
-    const [rows] = await connection.execute('SELECT NOW() AS currentTime');
+    const [rows] = await connection.execute('SELECT * FROM scec.vw_employee_ce_detail LIMIT 100;');
 
     await connection.end();
 

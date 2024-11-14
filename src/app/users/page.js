@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useRef, useState } from "react";
 
 
@@ -8,8 +10,6 @@ function UsersPage() {
 
 
   console.log(data);
-
-
 
     useEffect(() => {
         const fetchData = async () => {
