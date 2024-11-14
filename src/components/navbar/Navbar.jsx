@@ -13,11 +13,12 @@ import {
   Link,
 } from "@nextui-org/react";
 import { AcmeLogo } from "./AcmeLogo.jsx";
+import { publicRoutes, privateRoutes } from "./NavbarRoutes.js";
 // import Link from "next/link";
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -56,21 +57,26 @@ export default function NavbarComponent() {
           </NavbarBrand>
         </Link>
 
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
+        {publicRoutes.map((route, index) => (
+          <NavbarItem key={index}>
+            <Link color="foreground" href={route.path}>
+              {route.name}
+            </Link>
+          </NavbarItem>
+        ))}
+
+        {/* <NavbarItem>
+          <Link color="foreground" href="/search">
+            Registro
           </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
+        </NavbarItem> */}
+
+        {/* <NavbarItem isActive>
           <Link href="#" aria-current="page">
             Customers
           </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem>
+        </NavbarItem> */}
+        
       </NavbarContent>
 
       <NavbarContent justify="end">
@@ -78,14 +84,14 @@ export default function NavbarComponent() {
           <Link href="/login-userx">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} color="primary" href="/login-userx/signup" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarMenu>
-        {menuItems.map((item, index) => (
+        {/* {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className="w-full"
@@ -102,7 +108,16 @@ export default function NavbarComponent() {
               {item}
             </Link>
           </NavbarMenuItem>
-        ))}
+        ))} */}
+        {
+            publicRoutes.map((route, index) => (
+              <NavbarMenuItem key={index}>
+                <Link color="foreground" href={route.path}>
+                  {route.name}
+                </Link>
+              </NavbarMenuItem>
+            ))
+        }
       </NavbarMenu>
     </Navbar>
   );
