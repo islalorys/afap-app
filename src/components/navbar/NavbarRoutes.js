@@ -2,7 +2,8 @@ export const publicRoutes = [
   { id: "1", name: "Home", path: "/" },
   { id: "2", name: "Dashboard", path: "/dashboard" },
   { id: "3", name: "Registro", path: "/search" },
-  { id: "4", name: "About", path: "/about" },
+  { id: "4", name: "Usuarios", path: "/users" },
+  { id: "5", name: "About", path: "/about" },
 ];
 
 export const privateRoutes = [

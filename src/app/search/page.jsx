@@ -3,7 +3,7 @@
 import { CatalogoHerramientas } from "@/components/catalogo-herramientas";
 import { Button, cn, Input, Radio, RadioGroup, Image } from "@nextui-org/react";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export const CustomRadio = (props) => {
   const { children, ...otherProps } = props;
@@ -27,6 +27,14 @@ export const CustomRadio = (props) => {
 function SearchPage() {
   const [selectedImage, setSelectedImage] = useState(null);
   const fileInputRef = useRef(null);
+
+  // Prueba de carga de usuario desde api propia
+
+
+
+  // if (!data) {
+  //   return <p>No se pudo obtener la imagen.</p>;
+  // }
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -101,7 +109,6 @@ function SearchPage() {
                   />
                 </div>
 
-                {/* <div></div> */}
                 <div>
                   <input
                     ref={fileInputRef}
@@ -119,11 +126,13 @@ function SearchPage() {
                     Subir Imagen
                   </Button>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
   );
 }
