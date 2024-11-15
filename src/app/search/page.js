@@ -50,7 +50,12 @@ function SearchPage() {
       console.log("Respuesta del servidor: ", res);
       const json = await res.json();
       setData(json);
-      console.log(json);
+      console.log("Json devuelta:", json);
+      if (json.length === 0) {
+        toast.info(
+          "No se encontraron resultados para el número de serie ingresado."
+        );
+      }
     } catch (error) {
       console.error("Error al obtener los datos:", error);
     } finally {
@@ -124,34 +129,40 @@ function SearchPage() {
             </Button>
             {/* Componente de vista previa de imagen y btn para subir */}
 
-            <div className="flex items-center justify-center mb-4">
+            <div className="flex items-center justify-center m-4">
               {data ? (
                 <>
                   {data?.map((item, index) => (
                     <Card className="py-4" key={index}>
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                        <div className="font-semibold text-base">
-                          <span>Empleado:</span> {item.nbEmpleado}
-                        </div>
-                        <small className="text-default-500">
-                          <span>Serie:</span> {item.noSerie}
-                        </small>
-                        {/* <div className="font-medium text-base">
-                  <span>noSerie:</span> {item.noSerie}
-                </div> */}
-                        <div className="font-medium text-sm">
-                          <span>Puesto:</span> {item.Puesto}
+                        <div className="font-medium text-base">
+                          <span>Marca:</span> {item.Marca}
                         </div>
                         <p className="text-tiny">
                           {item.TipoDeEquipo} - {item.Modelo}
                         </p>
 
                         <small className="text-default-500">
+                          <span>Serie:</span> {item.noSerie}
+                        </small>
+
+                        <small className="text-default-500">
                           <span>Estatus:</span> {item.EstatusEquipo}
                         </small>
-                        <div className="font-medium text-base">
-                          <span>Marca:</span> {item.Marca}
+
+                        <div className="font-semibold text-base">
+                          <span>Empleado:</span> {item.nbEmpleado}
                         </div>
+                        <div className="font-medium text-sm">
+                          <span>Puesto:</span> {item.Puesto}
+                        </div>
+                        <small className="text-default-500">
+                          <span>Division:</span> {item.Division}
+                        </small>
+
+                        <small className="text-default-500">
+                          <span>Oficina:</span> {item.Oficina}
+                        </small>
                       </CardHeader>
                     </Card>
                   ))}
@@ -163,8 +174,8 @@ function SearchPage() {
               )}
             </div>
 
-            {data.length > 0  ? (
-              <div className="flex items-center justify-center">
+            {data.length > 0 ? (
+              <div className="flex items-center justify-center m">
                 <div>
                   {/* <Input
               className="mb-4"
