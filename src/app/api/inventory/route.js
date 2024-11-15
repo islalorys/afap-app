@@ -12,7 +12,7 @@ export async function GET() {
       ssl: { rejectUnauthorized: true },
     });
 
-    const [rows] = await connection.execute('SELECT * FROM scec.vw_employee_ce_detail LIMIT 50;');
+    const [rows] = await connection.execute('SELECT * FROM scec.vw_employee_ce_detail LIMIT 10;');
 
     await connection.end();
 

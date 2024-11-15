@@ -40,24 +40,34 @@ function InventoryPage() {
     <div>
       <h1>Inventario de Equipos</h1>
       <div className="mx-4">
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {/* <div className="flex-col columns-3"> */}
 
           {data?.map((item, index) => (
             <Card className="py-4" key={index}>
               <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                <div className="font-semibold text-base">
+                  <span>Empleado:</span> {item.nbEmpleado}
+                </div>
+                <small className="text-default-500">
+                  <span>Serie:</span> {item.noSerie}
+                </small>
+                {/* <div className="font-medium text-base">
+                  <span>noSerie:</span> {item.noSerie}
+                </div> */}
+                <div className="font-medium text-sm">
+                  <span>Puesto:</span> {item.Puesto}
+                </div>
                 <p className="text-tiny uppercase font-bold">
                   {item.TipoDeEquipo} - {item.Modelo}
                 </p>
+              
                 <small className="text-default-500">
-                  <strong>Serie:</strong> {item.noSerie}
+                  <span>Estatus:</span> {item.EstatusEquipo}
                 </small>
-                <small className="text-default-500">
-                  <strong>Estatus:</strong> {item.EstatusEquipo}
-                </small>
-                <h4 className="font-bold text-large">
-                  <strong>Marca:</strong> {item.Marca}
-                </h4>
+                <div className="font-medium text-base">
+                  <span>Marca:</span> {item.Marca}
+                </div>
               </CardHeader>
               {/* <CardBody className="overflow-visible py-2">
               <Image
