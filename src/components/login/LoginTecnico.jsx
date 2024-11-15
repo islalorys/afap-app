@@ -17,8 +17,23 @@ import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
 import React from "react";
 
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 export default function LoginTecnico() {
+
+  const notify = () => toast("Wow so easy!", 
+  //   {
+  //   position: "top-right",
+  //   autoClose: 5000,
+  //   hideProgressBar: false,
+  //   closeOnClick: true,
+  //   pauseOnHover: true,
+  //   draggable: true,
+  //   progress: undefined,
+  //   theme: "light",
+  // }
+)
+  
   const [isVisible, setIsVisible] = React.useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -89,7 +104,7 @@ export default function LoginTecnico() {
               Registrarse
             </Button>
           </Link>
-          <Button color="primary" variant="solid">
+          <Button color="primary" variant="solid" onClick={notify}>
             Iniciar Sesión
           </Button>
 
