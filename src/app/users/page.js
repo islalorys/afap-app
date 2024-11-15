@@ -14,14 +14,14 @@ function UsersPage() {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const res = await fetch('/api/users'); // Nueva ruta de tu API interna
+            const res = await fetch('/api/users'); 
             console.log("Respuesta del servidor: ", res);
             const json = await res.json();
-            setData(json); // Almacena los datos en el estado
+            setData(json); 
           } catch (error) {
             console.error('Error al obtener los datos:', error);
           } finally {
-            setLoading(false); // Deja de cargar
+            setLoading(false);
           }
         };
     

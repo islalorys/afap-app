@@ -44,7 +44,7 @@ export default function NavbarComponent() {
         <Link href="/" className="cursor-pointer">
           <NavbarBrand>
             <AcmeLogo />
-            <p className="font-bold text-inherit">ACME</p>
+            <p className="font-bold text-inherit">AFAP</p>
           </NavbarBrand>
         </Link>
       </NavbarContent>
