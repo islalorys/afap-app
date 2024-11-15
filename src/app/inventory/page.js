@@ -58,7 +58,7 @@ function InventoryPage() {
                 <div className="font-medium text-sm">
                   <span>Puesto:</span> {item.Puesto}
                 </div>
-                <p className="text-tiny uppercase font-bold">
+                <p className="text-tiny">
                   {item.TipoDeEquipo} - {item.Modelo}
                 </p>
               
